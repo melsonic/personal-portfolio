@@ -1,0 +1,60 @@
+.pgradient {
+  @apply bg-gradient-to-r from-pviolet to-pcyan;
+}
+
+.pgradient-text {
+  @apply pgradient text-transparent bg-clip-text;
+}
+
+.pbutton-gradient {
+  @apply w-36 text-base px-5 py-3 rounded-full pgradient mx-auto my-4 outline-none hover:text-black transition-all;
+}
+
+.pbutton-gradient-mobile {
+  @apply w-32 text-sm px-4 py-3 rounded-full pgradient mx-auto my-4 hover:text-black transition-all;
+}
+
+.pbutton-normal {
+  @apply w-36 text-base px-5 py-3 rounded-full bg-pbg mx-auto my-4 border-2 border-white hover:text-pcyan transition-all;
+}
+
+.pbutton-normal-mobile {
+  @apply w-32 text-sm px-4 py-3 rounded-full bg-pbg mx-auto my-4 border-2 border-white hover:text-pcyan transition-all;
+}
+
+.psection-title {
+  @apply text-white text-3xl font-bold text-center my-8 pt-16 border-t-2 border-t-gray-800 md:text-4xl lg:text-5xl lg:mb-20;
+}
+
+.pgradient-border {
+  background: linear-gradient(#0F1724 0 0) padding-box,
+    linear-gradient(to bottom, #935DD5, #13A9C2) border-box;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.pinput {
+  margin: 10px 0;
+  height: 40px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+  padding: 0px 16px;
+}
+
+.pitembox {
+  @apply mb-20;
+}
+
+.pnav_item {
+  @apply cursor-pointer mx-2 lg:mx-4 xl:text-xl hover:text-pcyan;
+}
+
+.pfooter_social_icons {
+  @apply mx-2 text-xl lg:text-3xl lg:mx-4 hover:scale-105 hover:text-pviolet;
+}
+
+.pnav_social_icons {
+  @apply mx-2 text-xl lg:text-2xl hover:text-pcyan lg:mx-4 hover:scale-110;
+}

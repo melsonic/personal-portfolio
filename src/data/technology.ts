@@ -1,0 +1,22 @@
+export const TechnologyList: Array<string> = [
+  "JavaScript",
+  "Golang",
+  "C++",
+  "Python",
+  "TypeScript",
+  "html",
+  "css/scss",
+  "ReactJS",
+  "NextJS",
+  "NodeJS",
+  "ExpressJS",
+  "Mongoose",
+  "MongoDB",
+  "MySQL",
+  "Flutter",
+  "Docker",
+  "Kubernetes",
+  "Linux",
+  "Git/Github",
+  "Wordpress"
+];
