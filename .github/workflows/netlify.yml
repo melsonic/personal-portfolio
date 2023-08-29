@@ -1,5 +1,4 @@
 name: 'Netlify Deploy'
-run-name: ${{ github.actor }} has updated the code
 
 on:
   push:
@@ -17,7 +16,6 @@ jobs:
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.MY_NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.MY_NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
           NETLIFY_DEPLOY_TO_PROD: true
           build_directory: 'dist'
           install_command: 'yarn'
