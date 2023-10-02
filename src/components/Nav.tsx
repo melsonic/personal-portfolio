@@ -4,6 +4,7 @@ import { TiSocialLinkedinCircular } from 'react-icons/ti'
 import { SocialMediaLinks } from '../data/socialmedia'
 
 function Nav() {
+  
   const [mobile, setMobile] = useState(false)
 
   useEffect(() => {
