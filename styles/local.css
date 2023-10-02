@@ -52,7 +52,7 @@
 }
 
 .pfooter_social_icons {
-  @apply mx-2 text-xl lg:text-3xl lg:mx-4 hover:scale-105 hover:text-pviolet;
+  @apply mx-2 text-xl lg:text-2xl lg:mx-4 hover:scale-105 hover:text-pviolet;
 }
 
 .pnav_social_icons {

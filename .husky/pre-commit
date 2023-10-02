@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Use git diff to check if there are any substantial changes
+if git diff --cached --numstat | grep -qvE '^[0-9]+\s+[0-9]+\s*$'; then
+  # Commit has substantial changes; allow it
+  exit 0
+else
+  # No substantial changes; reject the commit
+  echo "Error: commit must contain new content. Please add new translations or changes."
+  exit 1
+fi
+
+yarn lint

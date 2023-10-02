@@ -3,6 +3,6 @@ type Document = {
 };
 
 export const DocumentsList: Document = {
-  resume: "https://drive.google.com/file/d/1gG52CeNAxYW4CyvsYc17ce2u9a22srNl/view?usp=drive_link",
-  oracleIntern: "https://drive.google.com/file/d/1VqQLmQ3wWalgFUXxvDcz0jwpuujReCPk/view?usp=drive_link"
+  resume: "https://drive.google.com/file/d/1Z4fVjakjConNPtJj_LaNYiY8F3oZohcz/view?usp=drive_link",
+  oracleIntern: "https://drive.google.com/file/d/18k2CljCfaK90pgCBEfjK2FOizMzKFo5j/view?usp=drive_link"
 }

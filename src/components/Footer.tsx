@@ -4,15 +4,15 @@ import { SocialMediaLinks } from '../data/socialmedia'
 
 function Footer() {
   return (
-    <div className='flex justify-center bg-white/[0.01] mt-16'>
-      <div className="flex flex-col items-center py-12 w-96 lg:w-172">
-        <span className='text-lg text-center font-medium lg:text-2xl'>
+    <div className='flex justify-center bg-white/[0.01] py-20 pt-24 text-gray-300'>
+      <div className="flex flex-col items-center w-96 lg:w-172">
+        <span className='text-lg text-center font-regular lg:text-xl'>
           Email me with any kind of suggestions, collaborations or just want to talk
         </span>
-        <span className='text-base pgradient-text mt-2 mb-4 lg:text-xl lg:mt-4'>
-          {SocialMediaLinks.email}
+        <span className='text-base pgradient-text mt-2 mb-4 lg:text-xl lg:mt-3'>
+          <a href={`mailto:${SocialMediaLinks.email}`}>{SocialMediaLinks.email}</a>
         </span>
-        <span className='grid grid-cols-3 gap-x-2 text-3xl lg:my-4'>
+        <span className='grid grid-cols-3 gap-x-2 text-3xl lg:my-1'>
           <a href={SocialMediaLinks.twitter} target='_blank' >
             <AiFillTwitterCircle className="pfooter_social_icons" />
           </a>
