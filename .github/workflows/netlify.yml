@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actiona/checkout@v4
+        uses: action/checkout@v4
       - name: Deploy to netlify
         uses: jsmrcaga/action-netlify-deploy@master
         with:
