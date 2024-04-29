@@ -19,7 +19,7 @@ function Landing() {
           I'm a MERN Stack developer with a keen interest in building scalable applications using microservices architecture. I have also explored fields like Machine Learning etc. Basically I like to explore new technologies.
         </p>
         <button className='pbutton-gradient lg:ml-0'>
-          <a href={DocumentsList.resume} target='_blank' >Download CV</a>
+          <a href={DocumentsList.resume} target='_blank' >Resume</a>
         </button>
       </div>
     </div>
