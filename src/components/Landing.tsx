@@ -4,7 +4,6 @@ import { getImageUrl } from "../sanity/client";
 
 function Landing(props: { siteGlobals: SiteGlobals}) {
   const {profilePicture, tagline, intro, resume} = props.siteGlobals;
-  console.log(profilePicture);
   return (
     <div className="flex flex-col 2xl:flex-row-reverse lg:justify-between lg:items-center">
       <div className="pgradient-border rounded-full mx-auto">

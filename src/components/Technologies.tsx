@@ -7,7 +7,6 @@ function Technologies() {
     getTechnologyList()
       .then((data) => setTechnologyList(data))
       .catch(console.error);
-    console.log(technologyList);
   }, []);
   return (
     <div className="py-8 pitembox" id="technology">

@@ -20,7 +20,6 @@ function Nav(props: { siteGlobals: SiteGlobals }) {
 
     changeMode();
     window.addEventListener("resize", changeMode);
-    console.log(props.siteGlobals);
   }, []);
 
   return (
