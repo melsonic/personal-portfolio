@@ -1,7 +1,7 @@
-import { interests as InterestsList, InterestsDataType } from "../data/interests.js";
+import { getInterestList, Interest } from "../data/interest.ts";
 import { useEffect, useState } from "react";
 
-function Interest(props: { i: InterestsDataType }) {
+function RenderInterest(props: { i: Interest }) {
   const { name, title, description, mastery } = props.i;
   const [pixel, setPixel] = useState(0);
 
@@ -13,11 +13,13 @@ function Interest(props: { i: InterestsDataType }) {
   return (
     <div className="flex flex-col pb-8 2xl:flex-row md:mx-20">
       <div className="flex flex-col 2xl:mr-10">
-        <span className="text-2xl font-bold mt-4 mb-4">{name.toUpperCase()}</span>
+        <span className="text-2xl font-bold mt-4 mb-4">
+          {name.toUpperCase()}
+        </span>
         <div className="h-4 w-72 bg-white rounded-full flex flex-col 2xl:mt-4">
           <div
             className="h-4 pgradient rounded-full"
-            style={{width: pixel}}
+            style={{ width: pixel }}
           >
           </div>
         </div>
@@ -31,12 +33,20 @@ function Interest(props: { i: InterestsDataType }) {
 }
 
 function Interests() {
+  const [interestList, SetInterestList] = useState(new Array<Interest>());
+  useEffect(() => {
+    getInterestList()
+      .then((interests) => SetInterestList(interests))
+      .catch(console.error);
+  }, []);
   return (
     <div className="pitembox" id="interests">
       <h1 className="psection-title">
         Things I Enjoy Doing
       </h1>
-      {InterestsList.map((i: InterestsDataType) => <Interest i={i} />)}
+      {interestList.map((interest: Interest, idx: number) => (
+        <RenderInterest i={interest} key={idx} />
+      ))}
     </div>
   );
 }

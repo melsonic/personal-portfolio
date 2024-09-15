@@ -1,22 +1,12 @@
-export const TechnologyList: Array<string> = [
-  "JavaScript",
-  "Golang",
-  "C++",
-  "Python",
-  "TypeScript",
-  "html",
-  "css/scss",
-  "ReactJS",
-  "NextJS",
-  "NodeJS",
-  "ExpressJS",
-  "Mongoose",
-  "MongoDB",
-  "MySQL",
-  "Flutter",
-  "Docker",
-  "Kubernetes",
-  "Linux",
-  "Git/Github",
-  "Wordpress"
-];
+import { sanityClient } from "../sanity/client";
+
+export type Technology = {
+  skill: string
+}
+
+export async function getTechnologyList(): Promise<Technology[]> {
+  const technologyList: Array<Technology> = await sanityClient.fetch(
+    `*[_type == "technology"]`,
+  );
+  return technologyList;
+}
