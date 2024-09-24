@@ -19,6 +19,13 @@ body {
   padding: 0;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
+
+abbr[title] {
+  border-bottom: none !important;
+  cursor: inherit !important;
+  text-decoration: none !important;
+}
+
