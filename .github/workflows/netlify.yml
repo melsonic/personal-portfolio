@@ -1,22 +1,33 @@
-name: 'Netlify Deploy'
+name: 'Deploy to Netlify'
 on:
   push:
-    branches: [main]
+    branches:
+      - [main] 
 jobs:
-  # deploy the application to netlify
   deploy:
-    name: 'Deploy Production build to netlify'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Deploy to netlify
-        uses: jsmrcaga/action-netlify-deploy@master
+      - name: 'Checkout repository'
+        uses: actions/checkout@v3
+      - name: 'Install Node.js'
+        uses: actions/setup-node@v3
         with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.MY_NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.MY_NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_TO_PROD: true
-          build_directory: 'dist'
-          install_command: 'yarn'
-          build_command: 'yarn build'
-          deploy_alias: 'melsonic'
+          node-version: '18'
+      - name: 'Install dependencies'
+        run: yarn
+      - name: 'Build the site'
+        run: vite build
+      - name: 'Deploy to Netlify'
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './dist'
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
