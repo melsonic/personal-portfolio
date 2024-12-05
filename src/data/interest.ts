@@ -1,3 +1,5 @@
+import { INTERESTS_ENDPOINT } from "./data";
+
 export type Interest = {
   name: string;
   title: string;
@@ -7,7 +9,7 @@ export type Interest = {
 
 export async function getInterestList(): Promise<Interest[]> {
   const response = await fetch(
-    "http://localhost:8081/interests",
+    INTERESTS_ENDPOINT,
   );
   let interests = await response.json();
   console.log(interests);

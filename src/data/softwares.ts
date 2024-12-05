@@ -1,3 +1,5 @@
+import { SOFTWARES_ENDPOINT } from "./data";
+
 export type Software = {
   title: string;
   description: string;
@@ -8,7 +10,7 @@ export type Software = {
 
 export async function getSoftwareList(): Promise<Software[]> {
   const response = await fetch(
-    "http://localhost:8081/softwares",
+    SOFTWARES_ENDPOINT,
   );
   let softwares = await response.json();
   return softwares;
