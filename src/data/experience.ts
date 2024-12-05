@@ -1,5 +1,3 @@
-import { sanityClient } from "../sanity/client";
-
 export type Experience = {
   title: string;
   timeline: string;
@@ -8,7 +6,7 @@ export type Experience = {
 };
 
 export async function getExperienceList(): Promise<Experience[]> {
-  const experiences = await sanityClient.fetch(`*[_type == "experience"]`);
+  const response = await fetch("http://localhost:8081/experiences");
+  let experiences = await response.json();
   return experiences;
 }
-

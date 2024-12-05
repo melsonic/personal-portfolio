@@ -1,12 +1,11 @@
-import { sanityClient } from "../sanity/client";
-
 export type Technology = {
-  skill: string
-}
+  skill: string;
+};
 
 export async function getTechnologyList(): Promise<Technology[]> {
-  const technologyList: Array<Technology> = await sanityClient.fetch(
-    `*[_type == "technology"]`,
+  const response = await fetch(
+    "http://localhost:8081/technology",
   );
+  let technologyList = await response.json();
   return technologyList;
 }

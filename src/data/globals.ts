@@ -1,5 +1,3 @@
-import { sanityClient } from "../sanity/client";
-
 export type SiteGlobals = {
   title: string;
   logo: string;
@@ -14,8 +12,7 @@ export type SiteGlobals = {
 };
 
 export async function getSiteGlobals(): Promise<SiteGlobals[]> {
-  const siteGlobals = await sanityClient.fetch(
-    `*[_type == "siteGlobals"]`,
-  );
+  const response = await fetch("http://localhost:8081/globals");
+  let siteGlobals = await response.json();
   return siteGlobals;
 }

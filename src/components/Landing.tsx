@@ -1,6 +1,5 @@
 import "../../styles/local.css";
 import { SiteGlobals } from "../data/globals";
-import { getImageUrl } from "../sanity/client";
 
 function Landing(props: { siteGlobals: SiteGlobals}) {
   const {profilePicture, tagline, intro, resume} = props.siteGlobals;
@@ -8,7 +7,7 @@ function Landing(props: { siteGlobals: SiteGlobals}) {
     <div className="flex flex-col 2xl:flex-row-reverse lg:justify-between lg:items-center">
       <div className="pgradient-border rounded-full mx-auto">
         <img
-          src={getImageUrl(profilePicture).url()}
+          src={profilePicture}
           alt="profile picture"
           className="filter grayscale w-48 h-48 z-10 pgradient-border rounded-full border-4 p-2 md:w-72 md:h-72 md:p-4 2xl:w-96 2xl:h-96 2xl:p-8 hover:grayscale-0 hover:scale-105 transition-all"
         />
