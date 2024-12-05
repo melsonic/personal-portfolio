@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getSoftwareList, Software } from "../data/softwares";
-import { getImageUrl } from "../sanity/client";
 
 function Softwares() {
   const [softwareList, setSoftwareList] = useState(new Array<Software>());
