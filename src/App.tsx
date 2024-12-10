@@ -12,12 +12,15 @@ import Footer from "./components/Footer";
 import { getSiteGlobals, SiteGlobals } from "./data/globals";
 
 function App() {
-  const [siteGlobals, setSiteGlobals] = useState<SiteGlobals | null>(null);
+  const [siteGlobals, setSiteGlobals] = useState<SiteGlobals>();
   useEffect(() => {
-    getSiteGlobals()
-      .then((data) => setSiteGlobals(data[0]));
+    async function util() {
+      let globals = await getSiteGlobals();
+      if (globals !== undefined) setSiteGlobals(globals[0]);
+    }
+    util();
   }, []);
-  if (siteGlobals) {
+  if (siteGlobals !== undefined) {
     return (
       <div className="min-h-screen w-screen overflow-x-hidden overflow-y-scroll bg-pbg text-white">
         <div className="max-w-xs mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl 2xl:max-w-screen-xl">
