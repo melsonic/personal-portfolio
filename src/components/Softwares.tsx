@@ -27,7 +27,7 @@ function Softwares() {
           return (
             <div className={softwareClasses} key={idx}>
               <img
-                src={getImageUrl(demoImage).url()}
+                src={demoImage && getImageUrl(demoImage).url()}
                 alt="software image"
                 className="box-content object-contain border-4 border-white"
               />
