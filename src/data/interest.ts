@@ -1,4 +1,4 @@
-import { INTERESTS_ENDPOINT } from "./data";
+import { sanityClient } from "../sanity/client";
 
 export type Interest = {
   name: string;
@@ -8,10 +8,9 @@ export type Interest = {
 };
 
 export async function getInterestList(): Promise<Interest[]> {
-  const response = await fetch(
-    INTERESTS_ENDPOINT,
+  const interests: Array<Interest> = await sanityClient.fetch(
+    `*[_type == "interest"]`,
   );
-  let interests = await response.json();
-  console.log(interests);
   return interests;
 }
+

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getSoftwareList, Software } from "../data/softwares";
+import { getImageUrl } from "../sanity/client";
 
 function Softwares() {
   const [softwareList, setSoftwareList] = useState(new Array<Software>());
@@ -26,7 +27,7 @@ function Softwares() {
           return (
             <div className={softwareClasses} key={idx}>
               <img
-                src={demoImage}
+                src={getImageUrl(demoImage).url()}
                 alt="software image"
                 className="box-content object-contain border-4 border-white"
               />

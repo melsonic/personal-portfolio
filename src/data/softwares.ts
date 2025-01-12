@@ -1,4 +1,4 @@
-import { SOFTWARES_ENDPOINT } from "./data";
+import { sanityClient } from "../sanity/client";
 
 export type Software = {
   title: string;
@@ -9,9 +9,8 @@ export type Software = {
 };
 
 export async function getSoftwareList(): Promise<Software[]> {
-  const response = await fetch(
-    SOFTWARES_ENDPOINT,
+  const softwares: Array<Software> = await sanityClient.fetch(
+    `*[_type == "software"]`,
   );
-  let softwares = await response.json();
   return softwares;
 }

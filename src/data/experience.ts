@@ -1,4 +1,4 @@
-import { EXP_ENDPOINT } from "./data.ts";
+import { sanityClient } from "../sanity/client";
 
 export type Experience = {
   title: string;
@@ -8,9 +8,7 @@ export type Experience = {
 };
 
 export async function getExperienceList(): Promise<Experience[]> {
-  const response = await fetch(
-    EXP_ENDPOINT
-  );
-  let experiences = await response.json();
+  const experiences = await sanityClient.fetch(`*[_type == "experience"]`);
   return experiences;
 }
+

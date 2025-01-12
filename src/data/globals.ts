@@ -1,4 +1,4 @@
-import { GLOBALS_ENDPOINT } from "./data.ts";
+import { sanityClient } from "../sanity/client";
 
 export type SiteGlobals = {
   title: string;
@@ -14,9 +14,8 @@ export type SiteGlobals = {
 };
 
 export async function getSiteGlobals(): Promise<SiteGlobals[]> {
-  const response = await fetch(
-    GLOBALS_ENDPOINT,
+  const siteGlobals = await sanityClient.fetch(
+    `*[_type == "siteGlobals"]`,
   );
-  let siteGlobals = await response.json();
   return siteGlobals;
 }
